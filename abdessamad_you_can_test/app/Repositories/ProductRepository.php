@@ -21,30 +21,14 @@ class ProductRepository implements IProductRepository
         return $products->get();
     }
 
-    public function createProduct($request)
-    {
-        
-        $validator = Validator::make($request->all(), [
-            'name' => 'required',
-            'description' => 'required',
-            'price' => 'required',
-            'category_id' => 'required',
-           
-        ]);
-       
+    public function createProduct($products)
+    {  
         $product = new Product();
-        $product->name = $request->name;
-        $product->description = $request->description;
-        $product->price = $request->price;
-        $product->category_id = $request->category_id;
-        // upload image
-        if($request->hasFile('image')){
-        $image = $request->file('image');
-        $image_name = $image->getClientOriginalName();
-        $image->move(public_path('/images'),$image_name);
-        $image_path = "/images/" . $image_name;
-        $product->image = $image_name;
-        }
+        $product->name = $products->name;
+        $product->description = $products->description;
+        $product->price = $products->price;
+        $product->category_id = $products->category_id;
+        $product->image = $products->image;
         $product->save();
         try {
             return response()->json([

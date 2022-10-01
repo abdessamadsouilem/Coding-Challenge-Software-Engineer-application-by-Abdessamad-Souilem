@@ -6,6 +6,6 @@ interface IProductRepository
 {
     public function getProducts($request);
 
-    public function createProduct($request);
+    public function createProduct($product);
 
 }
