@@ -33,6 +33,20 @@ class CategoryRepository implements ICategoryRepository
         }
     }
 
+    public function deleteCategory($id)
+    {
+        $category = Category::find($id);
+        if($category){
+            $category->delete();
+            return response()->json([
+                'message' => 'Category deleted successfully',
+            ], 200);
+        }
+        return response()->json([
+            'message' => 'Category not found',
+        ], 404);
+    }
+
     
 }
 

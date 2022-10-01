@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use App\Repositories\ICategoryRepository;
 
 class DeleteCategory extends Command
 {
@@ -11,14 +12,15 @@ class DeleteCategory extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'category:delete
+                            {--id= : id of the category }';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Delete a category';
 
     /**
      * Create a new command instance.
@@ -35,8 +37,12 @@ class DeleteCategory extends Command
      *
      * @return int
      */
-    public function handle()
+    public function handle(ICategoryRepository $categoryRepository)
     {
-        return 0;
+        $id = $this->option('id');
+        $categoryRepository->deleteCategory($id);
+
+        $this->info('Category deleted successfully');
     }
+
 }

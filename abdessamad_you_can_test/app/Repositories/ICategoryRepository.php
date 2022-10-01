@@ -8,6 +8,9 @@ interface ICategoryRepository
 
     public function createCategory($request);
 
+    
+    public function deleteCategory($id);
+
 
 
 

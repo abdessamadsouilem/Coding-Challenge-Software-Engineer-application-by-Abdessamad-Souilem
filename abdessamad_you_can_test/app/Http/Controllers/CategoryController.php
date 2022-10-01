@@ -48,4 +48,17 @@ class CategoryController extends Controller
     {
         return $this->categoryRepository->getCategories();
     }
+
+
+    /**
+     * Display the specified resource.
+     *
+     * @param int $id
+     * @return JsonResponse
+     */
+
+    public function destroy($id)
+    {
+        return $this->categoryRepository->deleteCategory($id);
+    }
 }

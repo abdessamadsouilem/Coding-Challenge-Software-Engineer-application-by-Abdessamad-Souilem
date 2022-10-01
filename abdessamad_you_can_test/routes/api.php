@@ -25,4 +25,5 @@ Route::get('/products',[ProductController::class, 'index']);
 Route::get('/categories',[CategoryController::class, 'index']);
 
 Route::delete('/deletePro/{id}',[ProductController::class, 'destroy']);
+Route::delete('/deleteCat/{id}',[CategoryController::class, 'destroy']);
 
