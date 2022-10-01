@@ -15,10 +15,7 @@ class CategoryRepository implements ICategoryRepository
 
     public function createCategory($request)
     {
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|unique:categories|max:255',
-            'parent' => 'required',
-        ]);
+        
         $category = new Category();
         $category->name = $request->name;
         $category->parent_category = $request->parent;
