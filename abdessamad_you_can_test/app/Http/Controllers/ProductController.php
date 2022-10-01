@@ -69,6 +69,19 @@ class ProductController extends Controller
         
     }
 
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param int $id
+     * @return JsonResponse
+     */
+
+    public function destroy($id)
+    {
+        return $this->productRepository->deleteProduct($id);
+    }
+
     
 
 }

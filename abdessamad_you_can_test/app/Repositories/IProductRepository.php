@@ -8,4 +8,6 @@ interface IProductRepository
 
     public function createProduct($product);
 
+    public function deleteProduct($id);
+
 }
