@@ -23,5 +23,14 @@ for front end
 - run npm run serve,  you will have access to app via http://localhost:8080/
 
 
+Create Product & Delete Product From CLi
+
+- Run this Command to create new Product :
+`php artisan product:create --name=NameOfProduct --description=Description --price=PriceOfProduct --category_id=CatId --image=Path`
+
+- Run this Command to delete Product :
+`php artisan product:delete --id=IdOfProduct`
+
+
 if you stack in somthing please call me in my number or contact me via abdessamadsouilem1@gmail.com
 
